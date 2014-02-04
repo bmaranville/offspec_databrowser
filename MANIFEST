@@ -1,0 +1,14 @@
+README.txt
+favicon.ico
+postinstall.py
+setup.py
+offspec_databrowser/MetaArray.py
+offspec_databrowser/__init__.py
+offspec_databrowser/background_dialog.py
+offspec_databrowser/binned_data_class3.py
+offspec_databrowser/colormap.py
+offspec_databrowser/databrowser.py
+offspec_databrowser/he3analyzer.py
+offspec_databrowser/plot_2d3.py
+offspec_databrowser/wxrebin_polcorr.py
+offspec_databrowser/zoom_colorbar.py
