@@ -5,7 +5,7 @@ import sys, os
 import wx.grid
 import wx.calendar
 #from IPython.gui.wx import ipython_view
-from reflred.formats import load as load_icp
+from reflred.reflred.formats import load as load_icp
 from glob import glob1
 #import cm
 #from angle_bmp import *

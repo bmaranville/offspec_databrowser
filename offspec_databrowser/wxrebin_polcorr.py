@@ -12,7 +12,7 @@ from wx import FileDialog
 import datetime
 #from FileDialog import *
 #from reflectometry.reduction import *
-from reflred.formats import load as icp_load
+from reflred.reflred.formats import load as icp_load
 from numpy import *
 from pylab import imshow,cm,colorbar,hot,show,xlabel,ylabel, plot
 #from qxqz_data_array_class import *
