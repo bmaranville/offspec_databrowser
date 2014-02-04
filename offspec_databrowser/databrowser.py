@@ -5,7 +5,7 @@ import sys, os
 import wx.grid
 import wx.calendar
 #from IPython.gui.wx import ipython_view
-import reflectometry.reduction as red
+from reflred.formats import load as load_icp
 from glob import glob1
 #import cm
 #from angle_bmp import *
@@ -460,7 +460,7 @@ class DataBrowser(wx.Frame):
             self.onExit()
         sorting_list = []
         for filename in file_list:
-            loaded_file = red.load(os.path.join(data_dir, filename), format="NCNR NG-1")
+            loaded_file = load_icp(os.path.join(data_dir, filename), format="NCNR NG-1")
             sorting_list.append([filename, loaded_file])
         sorting_list.sort(key = lambda entry: entry[0])
         sorted_list = sorted(sorting_list, key = lambda entry: entry[1].date)
@@ -516,7 +516,8 @@ class DataBrowser(wx.Frame):
             #    elapsed = calculate_elapsed(item[0])
             if not elapsed == '':
                 cat_entry.setAttribute('elapsed_time', elapsed)
-            cat_entry.setAttribute('polarization', loaded_file.polarization)      
+            cat_entry.setAttribute('polarization', loaded_file.polarization)
+                
             user_descriptions.append(user_description)
             elapsed_time.append(elapsed)
             A3 = loaded_file.sample.angle_x
