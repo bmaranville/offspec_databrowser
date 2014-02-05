@@ -29,7 +29,6 @@ from matplotlib.cm import get_cmap, hot, jet
 import matplotlib.cbook as cbook
 import matplotlib
 from plot_2d3 import plot_2d_data
-from scipy import ndimage
 
 def load_plottable_2d_data(filename=None):
     if filename == None:
@@ -338,14 +337,18 @@ class plottable_2d_data:
         return new_data
 
     def smooth(self, smoothing_width = 3.0, axis = 1):
-        working_copy = self.bin_data.copy()
-        nz_mask = working_copy[:,:,1].nonzero()
-        working_copy[:,:,0] = ndimage.gaussian_filter1d(working_copy[:,:,0], smoothing_width, axis=axis)
-        working_copy[:,:,3][nz_mask] = working_copy[:,:,0][nz_mask] / working_copy[:,:,2][nz_mask]
-        self.bin_data = working_copy
-        if self.area_plot:
-            self.area_plot.Destroy()
-            self.area_plot = self.wxplot()
+        try:
+            from scipy import ndimage
+            working_copy = self.bin_data.copy()
+            nz_mask = working_copy[:,:,1].nonzero()
+            working_copy[:,:,0] = ndimage.gaussian_filter1d(working_copy[:,:,0], smoothing_width, axis=axis)
+            working_copy[:,:,3][nz_mask] = working_copy[:,:,0][nz_mask] / working_copy[:,:,2][nz_mask]
+            self.bin_data = working_copy
+            if self.area_plot:
+                self.area_plot.Destroy()
+                self.area_plot = self.wxplot()
+        except ImportError:
+            print "no scipy on this machine..."
 
     def save(self, outFileName = None):
         if outFileName == None:
