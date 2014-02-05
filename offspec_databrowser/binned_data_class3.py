@@ -9,8 +9,8 @@ import sys
 #import tkMessageBox
 #import tkFileDialog
 #from FileDialog import *
-from reflectometry.reduction import *
-import reflectometry.reduction as red
+#from reflectometry.reduction import *
+#import reflectometry.reduction as red
 from numpy import *
 from pylab import imshow,cm,colorbar,hot,show,xlabel,ylabel,connect, plot, figure, draw, axis, gcf
 import matplotlib.colors as colors
@@ -24,7 +24,7 @@ import pickle
 from matplotlib.image import FigureImage
 from matplotlib.figure import Figure
 from zoom_colorbar import zoom_colorbar
-from reflectometry.reduction.cmapmenu import CMapMenu
+from reflred.reflred.cmapmenu import CMapMenu
 from matplotlib.cm import get_cmap, hot, jet
 import matplotlib.cbook as cbook
 import matplotlib

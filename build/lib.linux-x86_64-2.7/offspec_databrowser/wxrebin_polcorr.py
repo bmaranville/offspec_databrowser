@@ -12,7 +12,7 @@ from wx import FileDialog
 import datetime
 #from FileDialog import *
 #from reflectometry.reduction import *
-from reflectometry.reduction import load as icp_load
+from reflred.reflred.formats import load as icp_load
 from numpy import *
 from pylab import imshow,cm,colorbar,hot,show,xlabel,ylabel, plot
 #from qxqz_data_array_class import *
@@ -546,7 +546,7 @@ class rebinned_data():
     data sets, then use largest step size as grid spacing.  In 2theta,
     somewhat simpler: use the pixel size as the grid spacing (1/80 deg)
     """
-    from reflectometry.reduction import rebin as reb
+    from reflred import rebin as reb
     if grid == None:
         grid = self.make_2th_th_grid()
     th_bin_edges, twoth_bin_edges, th_stepsize, twoth_stepsize = grid
