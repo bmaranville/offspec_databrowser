@@ -13,7 +13,7 @@ from matplotlib.image import FigureImage
 from matplotlib.figure import Figure
 from matplotlib.pyplot import figure, get_fignums
 from zoom_colorbar import zoom_colorbar
-from reflectometry.reduction.cmapmenu import CMapMenu
+from reflred.reflred.cmapmenu import CMapMenu
 from matplotlib.cm import get_cmap
 import matplotlib.cbook as cbook
 import matplotlib
